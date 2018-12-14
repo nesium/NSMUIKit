@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0BCE0221C3DCEB0096882C /* Flex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0BCE0121C3DCEB0096882C /* Flex.framework */; };
+		2C0BCE0721C3DD630096882C /* RxNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BCE0521C3DD630096882C /* RxNavigationController.swift */; };
+		2C0BCE0821C3DD630096882C /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BCE0621C3DD630096882C /* RxViewController.swift */; };
+		2C0BCE0C21C3DDA20096882C /* FlexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BCE0921C3DDA20096882C /* FlexView.swift */; };
+		2C0BCE0D21C3DDA20096882C /* FlexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BCE0A21C3DDA20096882C /* FlexViewController.swift */; };
+		2C0BCE0E21C3DDA20096882C /* FlexScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BCE0B21C3DDA20096882C /* FlexScrollView.swift */; };
+		2C0BCE1021C3F5380096882C /* FlexControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0BCE0F21C3F5380096882C /* FlexControl.swift */; };
 		2CA26E5221C24433001004EE /* NSMUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA26E4821C24433001004EE /* NSMUIKit.framework */; };
 		2CA26E5721C24433001004EE /* NSMUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA26E5621C24433001004EE /* NSMUIKitTests.swift */; };
 		2CA26E5921C24433001004EE /* NSMUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA26E4B21C24433001004EE /* NSMUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0BCE0121C3DCEB0096882C /* Flex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flex.framework; path = Carthage/Build/iOS/Flex.framework; sourceTree = "<group>"; };
+		2C0BCE0521C3DD630096882C /* RxNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxNavigationController.swift; sourceTree = "<group>"; };
+		2C0BCE0621C3DD630096882C /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
+		2C0BCE0921C3DDA20096882C /* FlexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexView.swift; sourceTree = "<group>"; };
+		2C0BCE0A21C3DDA20096882C /* FlexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexViewController.swift; sourceTree = "<group>"; };
+		2C0BCE0B21C3DDA20096882C /* FlexScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexScrollView.swift; sourceTree = "<group>"; };
+		2C0BCE0F21C3F5380096882C /* FlexControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexControl.swift; sourceTree = "<group>"; };
 		2CA26E4821C24433001004EE /* NSMUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSMUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA26E4B21C24433001004EE /* NSMUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMUIKit.h; sourceTree = "<group>"; };
 		2CA26E4C21C24433001004EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CA26E6A21C2454D001004EE /* RxSwift.framework in Frameworks */,
+				2C0BCE0221C3DCEB0096882C /* Flex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +74,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0BCE0321C3DD0D0096882C /* Flex */ = {
+			isa = PBXGroup;
+			children = (
+				2C0BCE0F21C3F5380096882C /* FlexControl.swift */,
+				2C0BCE0B21C3DDA20096882C /* FlexScrollView.swift */,
+				2C0BCE0921C3DDA20096882C /* FlexView.swift */,
+				2C0BCE0A21C3DDA20096882C /* FlexViewController.swift */,
+			);
+			path = Flex;
+			sourceTree = "<group>";
+		};
+		2C0BCE0421C3DD220096882C /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				2C0BCE0521C3DD630096882C /* RxNavigationController.swift */,
+				2C0BCE0621C3DD630096882C /* RxViewController.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		2CA26E3E21C24433001004EE = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +137,8 @@
 			children = (
 				2CA26E6621C244C9001004EE /* KeyboardObserver.swift */,
 				2CA26E6321C24447001004EE /* Extensions */,
+				2C0BCE0321C3DD0D0096882C /* Flex */,
+				2C0BCE0421C3DD220096882C /* Rx */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -118,6 +155,7 @@
 		2CA26E6821C2454D001004EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C0BCE0121C3DCEB0096882C /* Flex.framework */,
 				2CA26E6921C2454D001004EE /* RxSwift.framework */,
 			);
 			name = Frameworks;
@@ -232,9 +270,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0BCE0C21C3DDA20096882C /* FlexView.swift in Sources */,
 				2CA26E6C21C245E2001004EE /* UIView+NSM.swift in Sources */,
+				2C0BCE0721C3DD630096882C /* RxNavigationController.swift in Sources */,
+				2C0BCE0D21C3DDA20096882C /* FlexViewController.swift in Sources */,
+				2C0BCE1021C3F5380096882C /* FlexControl.swift in Sources */,
 				2CA26E6721C244C9001004EE /* KeyboardObserver.swift in Sources */,
 				2CA26E6521C24470001004EE /* UIScreen+NSM.swift in Sources */,
+				2C0BCE0821C3DD630096882C /* RxViewController.swift in Sources */,
+				2C0BCE0E21C3DDA20096882C /* FlexScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
