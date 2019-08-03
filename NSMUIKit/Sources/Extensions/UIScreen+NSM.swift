@@ -9,19 +9,19 @@
 import UIKit
 
 public extension UIScreen {
-  public static func nsm_floor(_ value: CGFloat) -> CGFloat {
+  static func nsm_floor(_ value: CGFloat) -> CGFloat {
     return (value * UIScreen.main.scale).rounded(.down) / UIScreen.main.scale
   }
 
-  public static func nsm_round(_ value: CGFloat) -> CGFloat {
+  static func nsm_round(_ value: CGFloat) -> CGFloat {
     return (value * UIScreen.main.scale).rounded(.toNearestOrAwayFromZero) / UIScreen.main.scale
   }
 
-  public static func nsm_ceil(_ value: CGFloat) -> CGFloat {
+  static func nsm_ceil(_ value: CGFloat) -> CGFloat {
     return (value * UIScreen.main.scale).rounded(.up) / UIScreen.main.scale
   }
 
-  public var nsm_pixel: CGFloat {
+  var nsm_pixel: CGFloat {
     return 1.0 / self.scale
   }
 }
