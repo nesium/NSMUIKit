@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Flex",
+        "repositoryURL": "https://github.com/nesium/Flex.git",
+        "state": {
+          "branch": null,
+          "revision": "ca442d3aa9265b9b1329aa95505e0be8a5c6fcec",
+          "version": "0.9.0"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "b3e888b4972d9bc76495dd74d30a8c7fad4b9395",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SnapshotTesting",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing.git",
+        "state": {
+          "branch": null,
+          "revision": "35aac0fbc74cdb0848923d42ddbdd3400c938f72",
+          "version": "1.6.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

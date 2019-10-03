@@ -6,7 +6,7 @@
 //  Copyright © 2017 nesiumdotcom. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 
 public class KeyboardObserver {
