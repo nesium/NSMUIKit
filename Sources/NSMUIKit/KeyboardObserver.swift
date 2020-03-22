@@ -6,13 +6,13 @@
 //  Copyright © 2017 nesiumdotcom. All rights reserved.
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
 public class KeyboardObserver {
   /// The keyboard rect in window coordinates.
   public let observableKeyboardRect: Observable<CGRect?>
-  public private(set) var keyboardRect: CGRect? = nil
+  public private(set) var keyboardRect: CGRect?
 
   public static let shared: KeyboardObserver = KeyboardObserver()
 
@@ -39,21 +39,24 @@ public class KeyboardObserver {
     NotificationCenter.default.addObserver(
       forName: UIResponder.keyboardWillShowNotification,
       object: nil,
-      queue: nil) {
+      queue: nil
+    ) {
       subject.on(.next(.show(extractRect($0))))
     }
 
     NotificationCenter.default.addObserver(
       forName: UIResponder.keyboardWillHideNotification,
       object: nil,
-      queue: nil) { _ in
+      queue: nil
+    ) { _ in
       subject.on(.next(.hide))
     }
 
     NotificationCenter.default.addObserver(
       forName: UIResponder.keyboardWillChangeFrameNotification,
       object: nil,
-      queue: nil) {
+      queue: nil
+    ) {
       subject.on(.next(.change(extractRect($0))))
     }
 
@@ -62,39 +65,39 @@ public class KeyboardObserver {
         let result: KeyboardState
 
         switch (state, event) {
-          case (.hidden, .show(let rect)):
-            result = .visible(rect)
-          case (.hidden, .hide):
-            result = .hidden
-          // This actually happens when an external keyboard is hooked up and a TextField looses
-          // its responder status. So we only forward the change event, if the keyboard was
-          // already visible.
-          case (.hidden, .change):
-            result = .hidden
-          case (.visible, .show(let rect)):
-            result = .visible(rect)
-          case (.visible, .hide):
-            result = .hidden
-          case (.visible, .change(let rect)):
-            result = .visible(rect)
+        case let (.hidden, .show(rect)):
+          result = .visible(rect)
+        case (.hidden, .hide):
+          result = .hidden
+        // This actually happens when an external keyboard is hooked up and a TextField looses
+        // its responder status. So we only forward the change event, if the keyboard was
+        // already visible.
+        case (.hidden, .change):
+          result = .hidden
+        case let (.visible, .show(rect)):
+          result = .visible(rect)
+        case (.visible, .hide):
+          result = .hidden
+        case let (.visible, .change(rect)):
+          result = .visible(rect)
         }
 
         switch result {
-          case .hidden:
+        case .hidden:
+          return .hidden
+        case let .visible(rect):
+          if rect.isEmpty {
             return .hidden
-          case .visible(let rect):
-            if rect.isEmpty {
-              return .hidden
-            }
-            return result
+          }
+          return result
         }
       })
       .map { (state: KeyboardState) -> CGRect? in
         switch state {
-          case .hidden:
-            return nil
-          case .visible(let rect):
-            return rect
+        case .hidden:
+          return nil
+        case let .visible(rect):
+          return rect
         }
       }
       .startWith(nil)

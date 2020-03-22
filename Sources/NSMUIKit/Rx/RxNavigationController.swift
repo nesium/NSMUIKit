@@ -19,11 +19,11 @@ public protocol ViewControllerRxEvents {
 }
 
 internal class ViewControllerRxEventsPublisher: ViewControllerRxEvents {
-  var viewWillApear: Observable<Bool> { return self.viewWillAppearSubject }
-  var viewWillDisappear: Observable<Bool> { return self.viewWillDisappearSubject }
-  var viewDidAppear: Observable<Bool> { return self.viewDidAppearSubject }
-  var viewDidDisappear: Observable<Bool> { return self.viewDidDisappearSubject }
-  var isBeingRemovedOrDismissed: Observable<Bool> { return self.isBeingRemovedOrDismissedSubject }
+  var viewWillApear: Observable<Bool> { self.viewWillAppearSubject }
+  var viewWillDisappear: Observable<Bool> { self.viewWillDisappearSubject }
+  var viewDidAppear: Observable<Bool> { self.viewDidAppearSubject }
+  var viewDidDisappear: Observable<Bool> { self.viewDidDisappearSubject }
+  var isBeingRemovedOrDismissed: Observable<Bool> { self.isBeingRemovedOrDismissedSubject }
 
   lazy var viewWillAppearSubject: PublishSubject<Bool> = PublishSubject()
   lazy var viewWillDisappearSubject: PublishSubject<Bool> = PublishSubject()
@@ -34,8 +34,9 @@ internal class ViewControllerRxEventsPublisher: ViewControllerRxEvents {
 
 open class RxNavigationController: UINavigationController {
   public var rx: ViewControllerRxEvents {
-    return self.rxPublisher
+    self.rxPublisher
   }
+
   private lazy var rxPublisher = ViewControllerRxEventsPublisher()
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +48,7 @@ open class RxNavigationController: UINavigationController {
     super.viewWillDisappear(animated)
     self.rxPublisher.viewWillDisappearSubject.onNext(animated)
 
-    if (self.isMovingFromParent || self.isBeingDismissed) {
+    if self.isMovingFromParent || self.isBeingDismissed {
       self.rxPublisher.isBeingRemovedOrDismissedSubject.onNext(animated)
     }
   }
@@ -63,6 +64,6 @@ open class RxNavigationController: UINavigationController {
   }
 
   open override var preferredStatusBarStyle: UIStatusBarStyle {
-    return self.topViewController?.preferredStatusBarStyle ?? .default
+    self.topViewController?.preferredStatusBarStyle ?? .default
   }
 }

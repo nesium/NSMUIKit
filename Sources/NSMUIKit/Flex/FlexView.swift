@@ -6,17 +6,17 @@
 //  Copyright © 2018 nesiumdotcom. All rights reserved.
 //
 
-import UIKit
 import Flex
+import UIKit
 
 open class FlexView: UIView {
   public init() {
     super.init(frame: .zero)
-    self.flex.enabled = true
+    self.flex.enable()
   }
 
   @available(*, unavailable)
-  required public init?(coder aDecoder: NSCoder) {
+  public required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 

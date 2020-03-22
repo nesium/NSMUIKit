@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/nesium/Flex.git",
         "state": {
           "branch": null,
-          "revision": "ca442d3aa9265b9b1329aa95505e0be8a5c6fcec",
-          "version": "0.9.0"
+          "revision": "c7fb77606a85feb32ff69b77414e82e0d240b749",
+          "version": "0.16.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing.git",
         "state": {
           "branch": null,
-          "revision": "35aac0fbc74cdb0848923d42ddbdd3400c938f72",
-          "version": "1.6.0"
+          "revision": "114882386a815f4a2e6d8f2f7ee4857acd372438",
+          "version": "1.7.2"
         }
       }
     ]

@@ -10,18 +10,18 @@ import UIKit
 
 public extension UIScreen {
   static func nsm_floor(_ value: CGFloat) -> CGFloat {
-    return (value * UIScreen.main.scale).rounded(.down) / UIScreen.main.scale
+    (value * UIScreen.main.scale).rounded(.down) / UIScreen.main.scale
   }
 
   static func nsm_round(_ value: CGFloat) -> CGFloat {
-    return (value * UIScreen.main.scale).rounded(.toNearestOrAwayFromZero) / UIScreen.main.scale
+    (value * UIScreen.main.scale).rounded(.toNearestOrAwayFromZero) / UIScreen.main.scale
   }
 
   static func nsm_ceil(_ value: CGFloat) -> CGFloat {
-    return (value * UIScreen.main.scale).rounded(.up) / UIScreen.main.scale
+    (value * UIScreen.main.scale).rounded(.up) / UIScreen.main.scale
   }
 
   var nsm_pixel: CGFloat {
-    return 1.0 / self.scale
+    1.0 / self.scale
   }
 }

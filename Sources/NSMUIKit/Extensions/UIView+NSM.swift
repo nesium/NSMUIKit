@@ -25,16 +25,14 @@ extension UIView {
   }
 
   public var nsm_enclosingViewController: UIViewController? {
-    get {
-      var nextResponder = self.next
+    var nextResponder = self.next
 
-      while nextResponder != nil {
-        if let ctrl = nextResponder as? UIViewController {
-          return ctrl
-        }
-        nextResponder = nextResponder!.next
+    while nextResponder != nil {
+      if let ctrl = nextResponder as? UIViewController {
+        return ctrl
       }
-      return nil
+      nextResponder = nextResponder!.next
     }
+    return nil
   }
 }

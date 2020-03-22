@@ -9,7 +9,7 @@
 import Flex
 import UIKit
 
-fileprivate class FlexScrollContentView: FlexView {}
+private class FlexScrollContentView: FlexView {}
 
 open class FlexScrollView: UIScrollView {
   public let contentView: FlexView
@@ -19,11 +19,11 @@ open class FlexScrollView: UIScrollView {
     super.init(frame: .zero)
     self.addSubview(self.contentView)
 
-    self.flex.enabled = true
+    self.flex.enable()
   }
 
   @available(*, unavailable)
-  required public init?(coder aDecoder: NSCoder) {
+  public required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
@@ -39,6 +39,6 @@ open class FlexScrollView: UIScrollView {
   }
 
   open override func sizeThatFits(_ size: CGSize) -> CGSize {
-    return self.contentView.sizeThatFits(size)
+    self.contentView.sizeThatFits(size)
   }
 }

@@ -11,8 +11,9 @@ import UIKit
 
 open class RxViewController: UIViewController {
   public var rx: ViewControllerRxEvents {
-    return self.rxPublisher
+    self.rxPublisher
   }
+
   private lazy var rxPublisher = ViewControllerRxEventsPublisher()
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +25,7 @@ open class RxViewController: UIViewController {
     super.viewWillDisappear(animated)
     self.rxPublisher.viewWillDisappearSubject.onNext(animated)
 
-    if (self.isMovingFromParent || self.isBeingDismissed) {
+    if self.isMovingFromParent || self.isBeingDismissed {
       self.rxPublisher.isBeingRemovedOrDismissedSubject.onNext(animated)
     }
   }

@@ -34,22 +34,20 @@ open class FlexViewController: RxViewController {
   }
 
   @available(*, unavailable)
-  required public init?(coder aDecoder: NSCoder) {
+  public required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
-  final override public func loadView() {
+  public final override func loadView() {
     let view = FlexViewControllerContainerView(frame: UIScreen.main.bounds)
     self.view = view
-    view.flex.direction = .column
+    view.flex.column()
     view.edgesForExtendedLayout = self.nsm_edgesForExtendedLayout
     view.minimumPadding = self.nsm_minimumPadding
   }
 }
 
-
-
-fileprivate class FlexViewControllerContainerView: FlexView {
+private class FlexViewControllerContainerView: FlexView {
   var minimumPadding: UIEdgeInsets = .zero {
     didSet {
       self.updatePadding()
@@ -67,7 +65,7 @@ fileprivate class FlexViewControllerContainerView: FlexView {
   init(frame: CGRect) {
     super.init()
     self.frame = frame
-    self.flex.enabled = true
+    self.flex.enable()
   }
 
   override func layoutSubviews() {
@@ -82,7 +80,7 @@ fileprivate class FlexViewControllerContainerView: FlexView {
   }
 
   override func sizeThatFits(_ size: CGSize) -> CGSize {
-    return self.flex.sizeThatFits(size)
+    self.flex.sizeThatFits(size)
   }
 
   private func updatePadding() {
@@ -101,12 +99,12 @@ fileprivate class FlexViewControllerContainerView: FlexView {
       padding.right = 0
     }
 
-    self.flex.style {
-      $0.paddingTop = .point(max(padding.top, self.minimumPadding.top))
-      $0.paddingLeft = .point(max(padding.left, self.minimumPadding.left))
-      $0.paddingBottom = .point(max(padding.bottom, self.minimumPadding.bottom))
-      $0.paddingRight = .point(max(padding.right, self.minimumPadding.right))
-    }
+    self.flex.padding(
+      top: .point(max(padding.top, self.minimumPadding.top)),
+      left: .point(max(padding.left, self.minimumPadding.left)),
+      bottom: .point(max(padding.bottom, self.minimumPadding.bottom)),
+      right: .point(max(padding.right, self.minimumPadding.right))
+    )
 
     self.setNeedsLayout()
   }
